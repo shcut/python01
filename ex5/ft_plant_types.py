@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
 	def __init__(self, name: str, height: float, age_self: int, growt: float, growth: float) -> None:
 		self.name = name
@@ -38,7 +40,7 @@ class Flower(Plant):
 		self.color = color
 		self.is_blooming = False
 	def bloom(self) -> None:
-		print("[asking the rose to bloom]")
+		print(f"[asking the {self.name} to bloom]")
 		self.is_blooming = True
 	def show(self) -> None:
 		super().show()
@@ -60,9 +62,9 @@ class Tree(Plant):
 		print(f" Trunk diameter: {self.trunk_diameter:.1f}cm")
 
 class Vegetable(Plant):
-	def __init__(self, name: str, height: float, age_self: int, growt: float, growth: float, Harvest_season: str):
+	def __init__(self, name: str, height: float, age_self: int, growt: float, growth: float, harvest_season: str):
 		super().__init__(name, height, age_self, growt , growth)
-		self.harvest_season = Harvest_season
+		self.harvest_season = harvest_season
 		self.nutritional_value = 0
 	def grow(self)-> None:
 		super().grow()
