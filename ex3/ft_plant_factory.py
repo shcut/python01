@@ -11,6 +11,7 @@ class Plant:
 	def grow(self) -> None:
 		self.height += self.growt
 		self.growth += self.growt
+	def set_age()
 	def age(self) -> None:
 		self.age_self += 1
 def main() -> None:
