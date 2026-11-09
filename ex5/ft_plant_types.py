@@ -10,7 +10,7 @@ class Plant:
         growth: float,
     ) -> None:
         self.name = name
-        self._height = 0
+        self._height: float = 0
         self._age_self = 0
         self.growt = growt
         self.growth = growth
@@ -24,13 +24,14 @@ class Plant:
         print(f"{self.name}: {self._height:.1f}cm, {self._age_self} days old")
 
     def grow(self) -> None:
+        previous_height = self._height
         self.set_height(self._height + self.growt)
-        self.growth += self.growt
+        self.growth += self._height - previous_height
 
     def age(self) -> None:
         self.set_age(self._age_self + 1)
 
-    def set_height(self, height):
+    def set_height(self, height: float) -> None:
         if height < 0:
             print(
                 f"{self.name}: Error, height can't be negative\n"
@@ -39,7 +40,7 @@ class Plant:
         else:
             self._height = height
 
-    def set_age(self, age_self):
+    def set_age(self, age_self: int) -> None:
         if age_self < 0:
             print(
                 f"{self.name}: Error, age can't be negative\n"
@@ -64,7 +65,7 @@ class Flower(Plant):
         growt: float,
         growth: float,
         color: str,
-    ):
+    ) -> None:
         super().__init__(name, height, age_self, growt, growth)
         self.color = color
         self.is_blooming = False
@@ -91,7 +92,7 @@ class Tree(Plant):
         growt: float,
         growth: float,
         trunk_diameter: float,
-    ):
+    ) -> None:
         super().__init__(name, height, age_self, growt, growth)
         self.trunk_diameter = trunk_diameter
 
@@ -117,7 +118,7 @@ class Vegetable(Plant):
         growt: float,
         growth: float,
         harvest_season: str,
-    ):
+    ) -> None:
         super().__init__(name, height, age_self, growt, growth)
         self.harvest_season = harvest_season
         self.nutritional_value = 0.0
